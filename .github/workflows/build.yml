@@ -63,3 +63,12 @@ jobs:
       - name: Run SonarCloud analysis
         if: github.ref == 'refs/heads/develop' || github.event.pull_request.base.ref == 'develop'
         run: ./gradlew sonar --info
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: success() && (github.ref == 'refs/heads/develop')
+    steps:
+      - name: Trigger Render Deploy
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
