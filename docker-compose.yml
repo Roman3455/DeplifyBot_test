@@ -1,0 +1,35 @@
+services:
+
+  telegram-bot:
+    container_name: deplifybot
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: deplifybot:0.0.1
+    ports:
+      - "8080:8080"
+    environment:
+      TELEGRAM_API_URL_INPUT: ${TELEGRAM_INPUT_URL}
+      TELEGRAM_API_URL_OUTPUT: ${TELEGRAM_OUTPUT_URL}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_WEBHOOK_SECRET: ${TELEGRAM_WEBHOOK_SECRET}
+    networks:
+      - bot-network
+
+  ngrok:
+    image: ngrok/ngrok:3-alpine
+    container_name: ngrok
+#    command: http notifier-bot:8080 # docker launch
+    command: http host.docker.internal:8080 # IDE launch
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    ports:
+      - "4040:4040"
+    networks:
+      - bot-network
+    depends_on:
+      - telegram-bot
+
+networks:
+  bot-network:
+    driver: bridge
