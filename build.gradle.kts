@@ -1,5 +1,8 @@
 plugins {
 	alias(libs.plugins.java)
+    alias(libs.plugins.jacoco)
+    alias(libs.plugins.sonarqube)
+    alias(libs.plugins.checkstyle)
     alias(libs.plugins.spring.boot)
 	alias(libs.plugins.spring.dependency.management)
 }
@@ -30,6 +33,26 @@ dependencies {
 	testRuntimeOnly(libs.junit.jupiter)
 }
 
+sonar {
+    properties {
+        property("sonar.projectKey", "Roman3455_DeplifyBot")
+        property("sonar.organization", "roman3455")
+    }
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+tasks.bootJar {
+    archiveFileName.set("app.jar")
 }
