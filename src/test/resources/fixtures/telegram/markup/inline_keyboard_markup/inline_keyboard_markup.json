@@ -1,0 +1,8 @@
+{
+  "inline_keyboard": [
+    [
+      { "text": "Link", "url": "https://example.com" },
+      { "text": "Label", "callback_data": "Payload" }
+    ]
+  ]
+}

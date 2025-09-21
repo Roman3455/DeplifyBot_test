@@ -1,0 +1,10 @@
+{
+  "update_id": 1001,
+  "my_chat_member": {
+    "chat": { "id": 3001, "type": "supergroup", "title": "Group" },
+    "from": { "id": 4001, "is_bot": false, "first_name": "Bob" },
+    "date": 1710001000,
+    "old_chat_member": { "status": "member", "user": { "id": 4001, "is_bot": false, "first_name": "Bob" } },
+    "new_chat_member": { "status": "kicked", "user": { "id": 4001, "is_bot": false, "first_name": "Bob" } }
+  }
+}

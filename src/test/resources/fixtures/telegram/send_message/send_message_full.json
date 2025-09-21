@@ -1,0 +1,10 @@
+{
+  "chat_id": "1613511531",
+  "message_thread_id": 42,
+  "text": "Test text",
+  "parse_mode": "MarkdownV2",
+  "disable_notification": true,
+  "reply_markup": {
+    "remove_keyboard": true
+  }
+}
