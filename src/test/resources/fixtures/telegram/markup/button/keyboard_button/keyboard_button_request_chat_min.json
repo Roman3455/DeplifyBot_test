@@ -1,0 +1,7 @@
+{
+  "text": "Pick a chat",
+  "request_chat": {
+    "request_id": 123,
+    "chat_is_channel": true
+  }
+}

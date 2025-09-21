@@ -1,0 +1,11 @@
+{
+  "update_id": 1001,
+  "unknown_root": "ignored",
+  "message": {
+    "message_id": 2001,
+    "date": 1710002000,
+    "chat": { "id": 42, "type": "private", "unknown_chat_field": true },
+    "text": "Ok",
+    "unknown_msg_field": 123
+  }
+}
