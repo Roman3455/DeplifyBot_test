@@ -28,6 +28,7 @@ dependencies {
 	implementation(libs.spring.cloud.starter.resilience4j)
     implementation(platform(libs.spring.cloud.bom))
     implementation(libs.spring.dotenv)
+    implementation(libs.squareup.okhttp)
 
 	testImplementation(libs.spring.boot.starter.test)
 	testRuntimeOnly(libs.junit.jupiter)

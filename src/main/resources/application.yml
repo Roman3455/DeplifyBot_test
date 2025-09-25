@@ -1,6 +1,19 @@
 spring:
   application:
     name: deplifybot
+  cloud:
+    openfeign:
+      httpclient:
+        hc5:
+          enabled: false
+      okhttp:
+        enabled: true
+      client:
+        config:
+          telegram:
+            url: ${TELEGRAM_RESPONSE_URL}
+            connect-timeout: 5000
+            read-timeout: 10000
 
 server:
   port: ${PORT}
