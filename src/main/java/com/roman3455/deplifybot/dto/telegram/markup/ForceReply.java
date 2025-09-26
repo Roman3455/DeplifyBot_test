@@ -36,10 +36,9 @@ public record ForceReply(
         if (!forceReply) {
             throw new IllegalArgumentException("Field 'force_reply' must be true.");
         }
-        if (inputFieldPlaceholder != null) {
-            if (inputFieldPlaceholder.isEmpty() || inputFieldPlaceholder.length() > MAX_PLACEHOLDER_LENGTH) {
-                throw new IllegalArgumentException("Allowed 'inputFieldPlaceholder' length is 1 to 64 characters.");
-            }
+        if (inputFieldPlaceholder != null
+                && (inputFieldPlaceholder.isEmpty() || inputFieldPlaceholder.length() > MAX_PLACEHOLDER_LENGTH)) {
+            throw new IllegalArgumentException("Allowed 'inputFieldPlaceholder' length is 1 to 64 characters.");
         }
     }
 

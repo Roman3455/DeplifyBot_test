@@ -17,7 +17,7 @@ import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 @JsonTest
 @Import(JacksonConfiguration.class)
 @DisplayName("InlineKeyboardMarkup JSON serialization")
-public class InlineKeyboardMarkupJsonTest {
+class InlineKeyboardMarkupJsonTest {
 
     @Autowired
     private JacksonTester<InlineKeyboardMarkup> json;

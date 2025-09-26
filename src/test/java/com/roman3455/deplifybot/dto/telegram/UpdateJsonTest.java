@@ -13,7 +13,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 @JsonTest
 @Import(JacksonConfiguration.class)
 @DisplayName("Update JSON deserialization")
-public class UpdateJsonTest {
+class UpdateJsonTest {
 
     @Autowired
     private JacksonTester<Update> json;

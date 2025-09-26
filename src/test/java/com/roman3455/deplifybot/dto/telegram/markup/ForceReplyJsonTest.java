@@ -19,7 +19,7 @@ import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 @JsonTest
 @Import(JacksonConfiguration.class)
 @DisplayName("ForceReply JSON serialization")
-public final class ForceReplyJsonTest {
+final class ForceReplyJsonTest {
 
     @Autowired
     private JacksonTester<ForceReply> json;

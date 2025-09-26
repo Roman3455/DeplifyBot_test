@@ -19,7 +19,7 @@ import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 @JsonTest
 @Import(JacksonConfiguration.class)
 @DisplayName("InlineKeyboardButton JSON serialization")
-public final class InlineKeyboardButtonJsonTest {
+final class InlineKeyboardButtonJsonTest {
 
     @Autowired
     private JacksonTester<InlineKeyboardButton> json;
