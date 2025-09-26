@@ -14,7 +14,7 @@ import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 @JsonTest
 @Import(JacksonConfiguration.class)
 @DisplayName("ReplyKeyboardRemove JSON serialization")
-public class ReplyKeyboardRemoveJsonTest {
+class ReplyKeyboardRemoveJsonTest {
 
     @Autowired
     private JacksonTester<ReplyKeyboardRemove> json;

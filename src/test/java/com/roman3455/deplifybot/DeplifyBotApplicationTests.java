@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -15,10 +16,15 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class DeplifyBotApplicationTests {
 
     @Autowired
+    private ApplicationContext applicationContext;
+
+    @Autowired
     private ObjectMapper objectMapper;
 
     @Test
     void contextLoads() {
+        assertThat(applicationContext).isNotNull();
+        assertThat(objectMapper).isNotNull();
     }
 
     @Test

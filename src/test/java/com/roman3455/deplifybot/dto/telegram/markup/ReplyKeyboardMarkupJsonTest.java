@@ -17,7 +17,7 @@ import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 @JsonTest
 @Import(JacksonConfiguration.class)
 @DisplayName("ReplyKeyboardMarkup JSON serialization")
-public class ReplyKeyboardMarkupJsonTest {
+class ReplyKeyboardMarkupJsonTest {
 
     @Autowired
     private JacksonTester<ReplyKeyboardMarkup> json;
@@ -79,7 +79,7 @@ public class ReplyKeyboardMarkupJsonTest {
 
     @Test
     @DisplayName("Given ReplyKeyboardMarkup, When keyboard field is NULL, Then throw exception")
-    void replyKeyboardMarkupWithNullKeyboardFieldThrowException() throws Exception {
+    void replyKeyboardMarkupWithNullKeyboardFieldThrowException() {
         thenThrownBy(() -> new ReplyKeyboardMarkup(null, null, null, null, "", null))
                 .isInstanceOf(NullPointerException.class)
                 .hasMessageContaining("Field 'keyboard' must not be null.");

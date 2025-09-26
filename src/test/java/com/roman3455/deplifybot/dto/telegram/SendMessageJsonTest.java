@@ -15,7 +15,7 @@ import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 @JsonTest
 @Import(JacksonConfiguration.class)
 @DisplayName("SendMessage JSON serialization")
-public class SendMessageJsonTest {
+class SendMessageJsonTest {
 
     @Autowired
     private JacksonTester<SendMessage> json;
