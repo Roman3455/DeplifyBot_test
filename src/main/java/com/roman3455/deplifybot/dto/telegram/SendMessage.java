@@ -22,4 +22,13 @@ public record SendMessage(
             throw new IllegalArgumentException("Allowed 'text' length is 1 to 4096 characters.");
         }
     }
+
+    public static SendMessage defaultMarkupMessage(
+            Object chatId,
+            String text,
+            Boolean disableNotification,
+            ReplyMarkup replyMarkup
+    ) {
+        return new SendMessage(chatId, null, text, null, disableNotification, replyMarkup);
+    }
 }
