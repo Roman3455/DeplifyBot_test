@@ -22,7 +22,7 @@ public final class UpdateRouterImpl implements UpdateRouter {
     }
 
     @Override
-    public void route(Update update) {
+    public void route(final Update update) {
         if (update.hasMessage(update) && update.message().hasText(update.message())) {
             commandHandler.handle(update);
             return;

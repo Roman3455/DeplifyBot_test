@@ -14,18 +14,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StartMenuCallback implements Callback {
+public final class StartMenuCallback implements Callback {
 
     private final TelegramClient client;
     private final MessageSource messageSource;
 
-    public StartMenuCallback(TelegramClient client, MessageSource messageSource) {
+    public StartMenuCallback(final TelegramClient client, final MessageSource messageSource) {
         this.client = client;
         this.messageSource = messageSource;
     }
 
     @Override
-    public void apply(Update update) {
+    public void apply(final Update update) {
         var callbackQueryId = update.callbackQuery().Id();
         var answerCallbackQuery = AnswerCallbackQuery.defaultAnswerCallbackQuery(callbackQueryId);
         client.answerCallbackQuery(answerCallbackQuery);

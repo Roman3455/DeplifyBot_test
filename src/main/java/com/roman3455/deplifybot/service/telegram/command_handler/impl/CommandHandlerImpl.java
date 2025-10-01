@@ -11,17 +11,17 @@ import java.util.Locale;
 import java.util.Map;
 
 @Service
-public class CommandHandlerImpl implements CommandHandler {
+public final class CommandHandlerImpl implements CommandHandler {
 
-    Map<String, Command> commandsMap;
+    private final Map<String, Command> commandsMap;
 
-    public CommandHandlerImpl(List<Command> commands) {
+    public CommandHandlerImpl(final List<Command> commands) {
         this.commandsMap = new HashMap<>();
         commands.forEach(command -> commandsMap.put(command.getType().getName(), command));
     }
 
     @Override
-    public void handle(Update update) {
+    public void handle(final Update update) {
         String commandName = update.message().text().strip().toLowerCase(Locale.ROOT);
         Command command = commandsMap.get(commandName);
         if (command != null) {

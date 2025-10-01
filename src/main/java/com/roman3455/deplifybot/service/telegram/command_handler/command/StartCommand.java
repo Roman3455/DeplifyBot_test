@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StartCommand implements Command {
+public final class StartCommand implements Command {
 
     private final MessageSource messageSource;
     private final TelegramClient client;
@@ -25,7 +25,7 @@ public class StartCommand implements Command {
     }
 
     @Override
-    public SendMessage prepareMessage(Update update) {
+    public SendMessage prepareMessage(final Update update) {
         long chatId = update.message().chat().id();
         String firstName = update.message().chat().firstName();
         String username = update.message().chat().username();
@@ -43,7 +43,7 @@ public class StartCommand implements Command {
     }
 
     @Override
-    public void apply(Update update) {
+    public void apply(final Update update) {
         client.sendMessage(prepareMessage(update));
     }
 
