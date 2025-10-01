@@ -25,7 +25,7 @@ public class StartCommand implements Command {
     }
 
     @Override
-    public void apply(Update update) {
+    public SendMessage prepareMessage(Update update) {
         long chatId = update.message().chat().id();
         String firstName = update.message().chat().firstName();
         String username = update.message().chat().username();
@@ -39,8 +39,12 @@ public class StartCommand implements Command {
                         CallbackType.START_MENU.getName()
                 )))
         );
-        var message = SendMessage.defaultMarkupMessage(chatId, sourceText, true, callbackButton);
-        client.sendMessage(message);
+        return SendMessage.defaultMarkupMessage(chatId, sourceText, true, callbackButton);
+    }
+
+    @Override
+    public void apply(Update update) {
+        client.sendMessage(prepareMessage(update));
     }
 
     @Override
