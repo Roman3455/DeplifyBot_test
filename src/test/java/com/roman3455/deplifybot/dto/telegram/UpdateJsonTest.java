@@ -44,7 +44,8 @@
 //
 //
 //    @Test
-//    @DisplayName("Given 'callback_query' update, When deserialized, Then core fields are populated and others are null")
+//    @DisplayName("Given 'callback_query' update, When deserialized, Then core fields are populated and others
+//    are null")
 //    void callbackQueryUpdateDeserialization() throws Exception {
 //        Update given = json.readObject(URL + "update_callback_query.json");
 //
@@ -62,7 +63,8 @@
 //    }
 //
 //    @Test
-//    @DisplayName("Given 'my_chat_member' update, When deserialized, Then core fields are populated and others are null")
+//    @DisplayName("Given 'my_chat_member' update, When deserialized, Then core fields are populated and others
+//    are null")
 //    void myChatMemberUpdateDeserialization() throws Exception {
 //        Update given = json.readObject(URL + "update_my_chat_member.json");
 //

@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("${telegram.bot.webhook.url}")
-public class TelegramWebhookController {
+public final class TelegramWebhookController {
 
-    TelegramSecretVerification verification;
-    UpdateRouter dispatcher;
+    private final TelegramSecretVerification verification;
+    private final UpdateRouter dispatcher;
 
-    public TelegramWebhookController(TelegramSecretVerification verification, UpdateRouter dispatcher) {
+    public TelegramWebhookController(final TelegramSecretVerification verification, final UpdateRouter dispatcher) {
         this.verification = verification;
         this.dispatcher = dispatcher;
     }
@@ -26,7 +26,7 @@ public class TelegramWebhookController {
     @PostMapping
     public ResponseEntity<Void> onUpdate(
             @RequestBody @Valid final Update update,
-            @RequestHeader(value = "X-Telegram-Bot-Api-Secret-Token") String secret
+            @RequestHeader(value = "X-Telegram-Bot-Api-Secret-Token") final String secret
     ) {
         verification.assertValid(secret);
         dispatcher.route(update);

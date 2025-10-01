@@ -12,7 +12,7 @@ public enum CallbackType {
     private final String name;
     private final String description;
 
-    CallbackType(String name, String description) {
+    CallbackType(final String name, final String description) {
         this.name = name;
         this.description = description;
     }

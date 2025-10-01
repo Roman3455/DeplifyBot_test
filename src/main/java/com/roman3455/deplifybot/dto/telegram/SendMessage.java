@@ -24,10 +24,10 @@ public record SendMessage(
     }
 
     public static SendMessage defaultMarkupMessage(
-            Object chatId,
-            String text,
-            Boolean disableNotification,
-            ReplyMarkup replyMarkup
+            final Object chatId,
+            final String text,
+            final Boolean disableNotification,
+            final ReplyMarkup replyMarkup
     ) {
         return new SendMessage(chatId, null, text, null, disableNotification, replyMarkup);
     }

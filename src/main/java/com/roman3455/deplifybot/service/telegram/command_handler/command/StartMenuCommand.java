@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StartMenuCommand implements Command {
+public final class StartMenuCommand implements Command {
 
     private final MessageSource messageSource;
     private final TelegramClient client;
@@ -25,7 +25,7 @@ public class StartMenuCommand implements Command {
     }
 
     @Override
-    public SendMessage prepareMessage(Update update) {
+    public SendMessage prepareMessage(final Update update) {
         long chatId = update.message().chat().id();
         String sourceText = messageSource.getMessage("start.menu.message", null, null);
         ReplyMarkup callbackButton = new InlineKeyboardMarkup(
@@ -57,7 +57,7 @@ public class StartMenuCommand implements Command {
     }
 
     @Override
-    public void apply(Update update) {
+    public void apply(final Update update) {
         client.sendMessage(prepareMessage(update));
     }
 

@@ -7,7 +7,7 @@ public enum CommandType {
     private final String name;
     private final String description;
 
-    CommandType(String name, String description) {
+    CommandType(final String name, final String description) {
         this.name = name;
         this.description = description;
     }

@@ -14,7 +14,7 @@ public record AnswerCallbackQuery(
         Objects.requireNonNull(callbackQueryId, "Field 'callbackQueryId' must not be null.");
     }
 
-    public static AnswerCallbackQuery defaultAnswerCallbackQuery(String callbackQueryId) {
+    public static AnswerCallbackQuery defaultAnswerCallbackQuery(final String callbackQueryId) {
         return new AnswerCallbackQuery(callbackQueryId, null, null, null);
     }
 }
