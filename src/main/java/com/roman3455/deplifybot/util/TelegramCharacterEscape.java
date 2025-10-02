@@ -2,11 +2,11 @@ package com.roman3455.deplifybot.util;
 
 import java.util.regex.Pattern;
 
-public final class TelegramEscapeUtil {
+public final class TelegramCharacterEscape {
 
     private static final Pattern MARKDOWN_V2_SPECIALS_PATTERN = Pattern.compile("([_\\[\\]()~`>#+=\\-|{}.!*])");
 
-    private TelegramEscapeUtil() {
+    private TelegramCharacterEscape() {
     }
 
     public static String escapeMarkdownV2(final String text) {
