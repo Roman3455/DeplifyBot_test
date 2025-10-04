@@ -1,6 +1,4 @@
-package com.roman3455.deplifybot.dto.telegram.nested;
-
-import com.roman3455.deplifybot.dto.telegram.ReplyMarkup;
+package com.roman3455.deplifybot.dto.telegram.inbound;
 
 public record ReplyKeyboardRemove(boolean removeKeyboard, Boolean selective) implements ReplyMarkup {
 

@@ -10,14 +10,14 @@ public final class TelegramApiTokenVerification {
 
     private static final String HEADER = "X-Telegram-Bot-Api-Secret-Token";
 
-    public static void assertValid(final String webhookSecret, final String receivedSecret)
+    public static void assertValid(final String expectedToken, final String receivedToken)
             throws ResponseStatusException {
-        if (receivedSecret == null) {
+        if (receivedToken == null) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Missing " + HEADER);
         }
 
-        byte[] expectedSecret = webhookSecret.getBytes(StandardCharsets.UTF_8);
-        byte[] actualSecret = receivedSecret.getBytes(StandardCharsets.UTF_8);
+        byte[] expectedSecret = expectedToken.getBytes(StandardCharsets.UTF_8);
+        byte[] actualSecret = receivedToken.getBytes(StandardCharsets.UTF_8);
         if (!MessageDigest.isEqual(expectedSecret, actualSecret)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Invalid " + HEADER);
         }

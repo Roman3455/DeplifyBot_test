@@ -1,12 +1,12 @@
 package com.roman3455.deplifybot.service.telegram.callback_handler.callback;
 
 import com.roman3455.deplifybot.client.TelegramClient;
-import com.roman3455.deplifybot.dto.telegram.AnswerCallbackQuery;
-import com.roman3455.deplifybot.dto.telegram.EditMessageText;
-import com.roman3455.deplifybot.dto.telegram.ReplyMarkup;
-import com.roman3455.deplifybot.dto.telegram.Update;
-import com.roman3455.deplifybot.dto.telegram.nested.InlineKeyboardButton;
-import com.roman3455.deplifybot.dto.telegram.nested.InlineKeyboardMarkup;
+import com.roman3455.deplifybot.dto.telegram.outbound.AnswerCallbackQuery;
+import com.roman3455.deplifybot.dto.telegram.outbound.EditMessageText;
+import com.roman3455.deplifybot.dto.telegram.inbound.ReplyMarkup;
+import com.roman3455.deplifybot.dto.telegram.inbound.Update;
+import com.roman3455.deplifybot.dto.telegram.inbound.InlineKeyboardButton;
+import com.roman3455.deplifybot.dto.telegram.inbound.InlineKeyboardMarkup;
 import com.roman3455.deplifybot.service.telegram.callback_handler.CallbackType;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;

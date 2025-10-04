@@ -1,4 +1,4 @@
-package com.roman3455.deplifybot.dto.telegram.nested;
+package com.roman3455.deplifybot.dto.telegram.inbound;
 
 public record User(
         Long id,

@@ -1,5 +1,6 @@
-package com.roman3455.deplifybot.dto.telegram;
+package com.roman3455.deplifybot.dto.telegram.outbound;
 
+import com.roman3455.deplifybot.dto.telegram.inbound.ReplyMarkup;
 import jakarta.annotation.Nonnull;
 
 import java.util.Objects;
@@ -16,8 +17,8 @@ public record SendMessage(
     public static final int MAX_TEXT_LENGTH = 4096;
 
     public SendMessage {
-        Objects.requireNonNull(chatId, "Field 'chatId' must not be null.");
-        Objects.requireNonNull(text, "Field 'text' must not be null.");
+        Objects.requireNonNull(chatId, "Field 'chatId' cannot be null.");
+        Objects.requireNonNull(text, "Field 'text' cannot be null.");
         if (text.isEmpty() || text.length() > MAX_TEXT_LENGTH) {
             throw new IllegalArgumentException("Allowed 'text' length is 1 to 4096 characters.");
         }

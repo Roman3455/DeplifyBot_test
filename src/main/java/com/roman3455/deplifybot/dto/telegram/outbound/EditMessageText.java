@@ -1,5 +1,6 @@
-package com.roman3455.deplifybot.dto.telegram;
+package com.roman3455.deplifybot.dto.telegram.outbound;
 
+import com.roman3455.deplifybot.dto.telegram.inbound.ReplyMarkup;
 import jakarta.annotation.Nonnull;
 
 import java.util.Objects;

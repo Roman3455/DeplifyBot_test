@@ -1,8 +1,4 @@
-package com.roman3455.deplifybot.dto.telegram;
-
-import com.roman3455.deplifybot.dto.telegram.nested.CallbackQuery;
-import com.roman3455.deplifybot.dto.telegram.nested.ChatMemberUpdated;
-import com.roman3455.deplifybot.dto.telegram.nested.Message;
+package com.roman3455.deplifybot.dto.telegram.inbound;
 
 public record Update(
         Long updateId,

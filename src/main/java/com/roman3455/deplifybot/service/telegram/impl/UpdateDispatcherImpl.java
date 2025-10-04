@@ -1,22 +1,22 @@
 package com.roman3455.deplifybot.service.telegram.impl;
 
-import com.roman3455.deplifybot.dto.telegram.Update;
+import com.roman3455.deplifybot.dto.telegram.inbound.Update;
 import com.roman3455.deplifybot.service.telegram.callback_handler.CallbackHandler;
 import com.roman3455.deplifybot.service.telegram.command_handler.CommandHandler;
-import com.roman3455.deplifybot.service.telegram.UpdateRouter;
+import com.roman3455.deplifybot.service.telegram.UpdateDispatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class UpdateRouterImpl implements UpdateRouter {
+public final class UpdateDispatcherImpl implements UpdateDispatcher {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UpdateRouterImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UpdateDispatcherImpl.class);
 
     private final CommandHandler commandHandler;
     private final CallbackHandler callbackHandler;
 
-    public UpdateRouterImpl(final CommandHandler commandHandler, final CallbackHandler callbackHandler) {
+    public UpdateDispatcherImpl(final CommandHandler commandHandler, final CallbackHandler callbackHandler) {
         this.commandHandler = commandHandler;
         this.callbackHandler = callbackHandler;
     }
