@@ -1,11 +1,11 @@
 package com.roman3455.deplifybot.service.telegram.command_handler.command;
 
 import com.roman3455.deplifybot.client.TelegramClient;
-import com.roman3455.deplifybot.dto.telegram.ReplyMarkup;
-import com.roman3455.deplifybot.dto.telegram.SendMessage;
-import com.roman3455.deplifybot.dto.telegram.Update;
-import com.roman3455.deplifybot.dto.telegram.nested.InlineKeyboardButton;
-import com.roman3455.deplifybot.dto.telegram.nested.InlineKeyboardMarkup;
+import com.roman3455.deplifybot.dto.telegram.inbound.ReplyMarkup;
+import com.roman3455.deplifybot.dto.telegram.outbound.SendMessage;
+import com.roman3455.deplifybot.dto.telegram.inbound.Update;
+import com.roman3455.deplifybot.dto.telegram.inbound.InlineKeyboardButton;
+import com.roman3455.deplifybot.dto.telegram.inbound.InlineKeyboardMarkup;
 import com.roman3455.deplifybot.service.telegram.callback_handler.CallbackType;
 import com.roman3455.deplifybot.service.telegram.command_handler.CommandType;
 import org.springframework.context.MessageSource;

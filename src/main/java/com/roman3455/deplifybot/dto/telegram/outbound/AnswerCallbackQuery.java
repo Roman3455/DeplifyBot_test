@@ -1,4 +1,4 @@
-package com.roman3455.deplifybot.dto.telegram;
+package com.roman3455.deplifybot.dto.telegram.outbound;
 
 import jakarta.annotation.Nonnull;
 

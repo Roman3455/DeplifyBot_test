@@ -1,4 +1,4 @@
-package com.roman3455.deplifybot.dto.telegram;
+package com.roman3455.deplifybot.dto.telegram.inbound;
 
 public record ResponseMessage<T>(
         boolean ok,
