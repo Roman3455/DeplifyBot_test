@@ -14,22 +14,24 @@ public class BotInitializer {
 
     private final TelegramClient telegramClient;
     private final String telegramWebhookUrl;
+    private final String telegramWebhookPath;
 
     private String telegramApiToken;
 
     public BotInitializer(
             TelegramClient telegramClient,
-            @Value("${telegram.bot.webhook.url}") String telegramWebhookUrl
+            @Value("${telegram.bot.webhook.url}") String telegramWebhookUrl,
+            @Value("${telegram.bot.webhook.path}") String telegramWebhookPath
     ) {
         this.telegramClient = telegramClient;
         this.telegramWebhookUrl = telegramWebhookUrl;
+        this.telegramWebhookPath = telegramWebhookPath;
     }
 
     @PostConstruct
     public void initBot() {
         generateTelegramApiToken();
-        setWebhook(telegramWebhookUrl);
-        System.out.println(this.telegramApiToken);
+        setWebhook(telegramWebhookUrl + telegramWebhookPath);
     }
 
     private void generateTelegramApiToken() {

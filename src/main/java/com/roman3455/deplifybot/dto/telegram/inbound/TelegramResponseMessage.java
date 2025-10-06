@@ -1,6 +1,6 @@
 package com.roman3455.deplifybot.dto.telegram.inbound;
 
-public record ResponseMessage<T>(
+public record TelegramResponseMessage<T>(
         boolean ok,
         T result,
         Integer errorCode,
