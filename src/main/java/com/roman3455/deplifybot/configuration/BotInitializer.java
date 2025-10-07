@@ -1,7 +1,7 @@
 package com.roman3455.deplifybot.configuration;
 
 import com.roman3455.deplifybot.client.TelegramClient;
-import com.roman3455.deplifybot.dto.telegram.outbound.SetWebhook;
+import com.roman3455.deplifybot.dto.telegram.api.request.SetWebhook;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
