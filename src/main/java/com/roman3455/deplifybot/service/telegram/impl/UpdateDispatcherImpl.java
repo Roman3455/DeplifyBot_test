@@ -1,8 +1,8 @@
 package com.roman3455.deplifybot.service.telegram.impl;
 
 import com.roman3455.deplifybot.dto.telegram.inbound.Update;
-import com.roman3455.deplifybot.service.telegram.callback_handler.CallbackHandler;
-import com.roman3455.deplifybot.service.telegram.command_handler.CommandHandler;
+import com.roman3455.deplifybot.service.telegram.CallbackDispatcher;
+import com.roman3455.deplifybot.service.telegram.CommandDispatcher;
 import com.roman3455.deplifybot.service.telegram.UpdateDispatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,22 +13,22 @@ public final class UpdateDispatcherImpl implements UpdateDispatcher {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UpdateDispatcherImpl.class);
 
-    private final CommandHandler commandHandler;
-    private final CallbackHandler callbackHandler;
+    private final CommandDispatcher commandDispatcher;
+    private final CallbackDispatcher callbackDispatcher;
 
-    public UpdateDispatcherImpl(final CommandHandler commandHandler, final CallbackHandler callbackHandler) {
-        this.commandHandler = commandHandler;
-        this.callbackHandler = callbackHandler;
+    public UpdateDispatcherImpl(final CommandDispatcher commandDispatcher, final CallbackDispatcher callbackDispatcher) {
+        this.commandDispatcher = commandDispatcher;
+        this.callbackDispatcher = callbackDispatcher;
     }
 
     @Override
-    public void route(final Update update) {
+    public void dispatch(final Update update) {
         if (update.hasMessage(update) && update.message().hasText(update.message())) {
-            commandHandler.handle(update);
+            commandDispatcher.dispatch(update);
             return;
         }
         if (update.hasCallbackQuery(update)) {
-            callbackHandler.handle(update);
+            callbackDispatcher.dispatch(update);
             return;
         }
         LOGGER.warn("Unknown Update received: [{}]", update.updateId());

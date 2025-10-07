@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CompletableFuture;
+
 @RestController
 @RequestMapping("${telegram.bot.webhook.path}")
 public final class TelegramWebhookController {
@@ -30,7 +32,7 @@ public final class TelegramWebhookController {
             @RequestHeader(value = "X-Telegram-Bot-Api-Secret-Token", required = false) final String apiSecretToken
     ) {
         TelegramApiTokenVerification.assertValid(botInitializer.getTelegramApiToken(), apiSecretToken);
-        dispatcher.route(update);
+        CompletableFuture.runAsync(() -> dispatcher.dispatch(update));
         return ResponseEntity.ok().build();
     }
 }
