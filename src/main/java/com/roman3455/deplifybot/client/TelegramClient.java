@@ -10,21 +10,19 @@ import com.roman3455.deplifybot.dto.telegram.api.request.SetWebhook;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient(name = "telegram", configuration = TelegramFeignConfig.class)
-@RequestMapping(consumes = "application/json", produces = "application/json")
 public interface TelegramClient {
 
-    @PostMapping(value = "/setWebhook")
+    @PostMapping(value = "/setWebhook", consumes = "application/json", produces = "application/json")
     TelegramResponseMessage<Boolean> setWebhook(@RequestBody SetWebhook body);
 
-    @PostMapping(value = "/sendMessage")
+    @PostMapping(value = "/sendMessage", consumes = "application/json", produces = "application/json")
     TelegramResponseMessage<Message> sendMessage(@RequestBody SendMessage body);
 
-    @PostMapping(value = "/answerCallbackQuery")
+    @PostMapping(value = "/answerCallbackQuery", consumes = "application/json", produces = "application/json")
     TelegramResponseMessage<Boolean> answerCallbackQuery(@RequestBody AnswerCallbackQuery body);
 
-    @PostMapping(value = "/editMessageText")
+    @PostMapping(value = "/editMessageText", consumes = "application/json", produces = "application/json")
     TelegramResponseMessage<Message> editMessageText(@RequestBody EditMessageText body);
 }

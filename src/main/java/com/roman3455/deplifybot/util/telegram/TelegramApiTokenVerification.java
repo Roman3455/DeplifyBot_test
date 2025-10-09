@@ -1,4 +1,4 @@
-package com.roman3455.deplifybot.util;
+package com.roman3455.deplifybot.util.telegram;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
@@ -9,6 +9,9 @@ import java.security.MessageDigest;
 public final class TelegramApiTokenVerification {
 
     private static final String HEADER = "X-Telegram-Bot-Api-Secret-Token";
+
+    private TelegramApiTokenVerification() {
+    }
 
     public static void assertValid(final String expectedToken, final String receivedToken)
             throws ResponseStatusException {

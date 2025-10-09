@@ -1,4 +1,4 @@
-package com.roman3455.deplifybot.util;
+package com.roman3455.deplifybot.util.telegram;
 
 import java.util.regex.Pattern;
 

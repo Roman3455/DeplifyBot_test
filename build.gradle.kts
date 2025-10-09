@@ -27,6 +27,7 @@ dependencies {
     implementation(libs.spring.cloud.starter.openfeign)
 	implementation(libs.spring.cloud.starter.resilience4j)
     implementation(platform(libs.spring.cloud.bom))
+    implementation(libs.springdoc.openapi.starter.webmvc)
     implementation(libs.spring.dotenv)
     implementation(libs.squareup.okhttp)
 

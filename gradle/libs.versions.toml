@@ -5,6 +5,7 @@ spring-boot = "3.5.5"
 spring-cloud = "2025.0.0"
 dependency-management = "1.1.7"
 spring-dotenv = "4.0.0"
+springdoc-openapi = "2.8.13"
 okhttp = "5.1.0"
 
 [libraries]
@@ -15,6 +16,7 @@ spring-cloud-bom = { module = "org.springframework.cloud:spring-cloud-dependenci
 spring-cloud-starter-openfeign = { module = "org.springframework.cloud:spring-cloud-starter-openfeign" }
 spring-cloud-starter-resilience4j = { module = "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j" }
 spring-dotenv = { module = "me.paulschwarz:spring-dotenv", version.ref = "spring-dotenv" }
+springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc-openapi" }
 squareup-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 junit-jupiter = { module = "org.junit.platform:junit-platform-launcher" }
 

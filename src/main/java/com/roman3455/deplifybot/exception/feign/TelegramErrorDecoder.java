@@ -20,39 +20,50 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Optional;
 
-public class TelegramErrorDecoder implements ErrorDecoder {
+public record TelegramErrorDecoder(
+        ObjectMapper mapper
+) implements ErrorDecoder {
 
     private static final Logger LOG = LoggerFactory.getLogger(TelegramErrorDecoder.class);
-    private final ObjectMapper mapper;
 
-    public TelegramErrorDecoder(ObjectMapper mapper) {
-        this.mapper = mapper;
-    }
+    private static final int BAD_REQUEST = 400;
+    private static final int UNAUTHORIZED = 401;
+    private static final int FORBIDDEN = 403;
+    private static final int NOT_FOUND = 404;
+    private static final int NOT_ACCEPTABLE = 406;
+    private static final int PAYLOAD_TOO_LARGE = 413;
+    private static final int ENHANCE_YOUR_CALM = 420;
+    private static final int TOO_MANY_REQUESTS = 429;
+    private static final int INTERNAL_SERVER_ERROR = 500;
+    private static final int BAD_GATEWAY = 502;
+    private static final int SERVICE_UNAVAILABLE = 503;
+    private static final int GATEWAY_TIMEOUT = 504;
 
     @Override
-    public Exception decode(String methodKey, Response response) {
-        if(response.body() == null) {
+    public Exception decode(final String methodKey, final Response response) {
+        if (response.body() == null) {
             return new RuntimeException("Telegram returned empty error body, status: " + response.status());
         }
 
-        try(InputStream inputStream = response.body().asInputStream()) {
+        try (InputStream inputStream = response.body().asInputStream()) {
             TelegramResponseMessage<?> exception = mapper.readValue(inputStream, TelegramResponseMessage.class);
             LOG.warn("Feign method [{}] failed. Telegram API error [{}]: {}",
                     methodKey, response.status(), exception.description());
             return switch (response.status()) {
-                case 400 -> new TelegramBadRequestException(exception.description());
-                case 401 -> new TelegramUnauthorizedException(exception.description());
-                case 403 -> new TelegramForbiddenException(exception.description());
-                case 404 -> new TelegramNotFoundException(exception.description());
-                case 406 -> new TelegramNotAcceptableException(exception.description());
-                case 413 -> new TelegramPayloadTooLargeException(exception.description());
-                case 420, 429 -> {
+                case BAD_REQUEST -> new TelegramBadRequestException(exception.description());
+                case UNAUTHORIZED -> new TelegramUnauthorizedException(exception.description());
+                case FORBIDDEN -> new TelegramForbiddenException(exception.description());
+                case NOT_FOUND -> new TelegramNotFoundException(exception.description());
+                case NOT_ACCEPTABLE -> new TelegramNotAcceptableException(exception.description());
+                case PAYLOAD_TOO_LARGE -> new TelegramPayloadTooLargeException(exception.description());
+                case ENHANCE_YOUR_CALM, TOO_MANY_REQUESTS -> {
                     long retryAfter = Optional.ofNullable(exception.parameters())
                             .map(TelegramResponseMessage.ResponseParameters::retryAfter)
                             .orElse(0);
                     yield new TelegramTooManyRequestsException(exception.description(), retryAfter);
                 }
-                case 500, 502, 503, 504 -> new TelegramServerException(exception.description());
+                case INTERNAL_SERVER_ERROR, BAD_GATEWAY, SERVICE_UNAVAILABLE, GATEWAY_TIMEOUT ->
+                        new TelegramServerException(exception.description());
                 default -> new RuntimeException("Unexpected Telegram exception (" + response.status() + "): "
                         + exception.description());
             };

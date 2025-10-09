@@ -3,7 +3,7 @@ package com.roman3455.deplifybot.api;
 import com.roman3455.deplifybot.configuration.BotInitializer;
 import com.roman3455.deplifybot.dto.telegram.inbound.Update;
 import com.roman3455.deplifybot.service.telegram.UpdateDispatcher;
-import com.roman3455.deplifybot.util.TelegramApiTokenVerification;
+import com.roman3455.deplifybot.util.telegram.TelegramApiTokenVerification;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
