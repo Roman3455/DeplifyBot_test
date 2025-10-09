@@ -16,7 +16,10 @@ public final class UpdateDispatcherImpl implements UpdateDispatcher {
     private final CommandDispatcher commandDispatcher;
     private final CallbackDispatcher callbackDispatcher;
 
-    public UpdateDispatcherImpl(final CommandDispatcher commandDispatcher, final CallbackDispatcher callbackDispatcher) {
+    public UpdateDispatcherImpl(
+            final CommandDispatcher commandDispatcher,
+            final CallbackDispatcher callbackDispatcher
+    ) {
         this.commandDispatcher = commandDispatcher;
         this.callbackDispatcher = callbackDispatcher;
     }

@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public final class GlobalExceptionHandler {
 
     @ExceptionHandler(value = ResponseStatusException.class)
-    public ResponseEntity<String> handleResponseStatusException(ResponseStatusException ex) {
+    public ResponseEntity<String> handleResponseStatusException(final ResponseStatusException ex) {
         return new ResponseEntity<>(ex.getMessage(), ex.getStatusCode());
     }
 }

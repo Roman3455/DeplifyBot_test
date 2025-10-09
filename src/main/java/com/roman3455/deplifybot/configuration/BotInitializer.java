@@ -9,8 +9,12 @@ import org.springframework.stereotype.Component;
 import java.security.SecureRandom;
 import java.util.Base64;
 
+/**
+ */
 @Component
 public class BotInitializer {
+
+    private static final int BYTES_SIZE = 32;
 
     private final TelegramClient telegramClient;
     private final String telegramWebhookUrl;
@@ -19,15 +23,17 @@ public class BotInitializer {
     private String telegramApiToken;
 
     public BotInitializer(
-            TelegramClient telegramClient,
-            @Value("${telegram.bot.webhook.url}") String telegramWebhookUrl,
-            @Value("${telegram.bot.webhook.path}") String telegramWebhookPath
+            final TelegramClient telegramClient,
+            @Value("${telegram.bot.webhook.url}") final String telegramWebhookUrl,
+            @Value("${telegram.bot.webhook.path}") final String telegramWebhookPath
     ) {
         this.telegramClient = telegramClient;
         this.telegramWebhookUrl = telegramWebhookUrl;
         this.telegramWebhookPath = telegramWebhookPath;
     }
 
+    /**
+     */
     @PostConstruct
     public void initBot() {
         generateTelegramApiToken();
@@ -35,16 +41,18 @@ public class BotInitializer {
     }
 
     private void generateTelegramApiToken() {
-        byte[] randomBytes = new byte[32];
+        byte[] randomBytes = new byte[BYTES_SIZE];
         new SecureRandom().nextBytes(randomBytes);
         telegramApiToken = Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes);
     }
 
-    private void setWebhook(String webhookUrl) {
+    private void setWebhook(final String webhookUrl) {
         var webhook = new SetWebhook(webhookUrl, null, null, null, telegramApiToken);
         telegramClient.setWebhook(webhook);
     }
 
+    /**
+     */
     public String getTelegramApiToken() {
         return telegramApiToken;
     }

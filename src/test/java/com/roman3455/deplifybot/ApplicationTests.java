@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContext;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
-class DeplifyBotApplicationTests {
+class ApplicationTests {
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -42,5 +42,4 @@ class DeplifyBotApplicationTests {
         assertThat(objectMapper.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES))
                 .isFalse();
     }
-
 }

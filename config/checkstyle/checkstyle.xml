@@ -202,12 +202,12 @@
 
   <module name="SuppressionSingleFilter">
       <property name="checks" value="HideUtilityClassConstructor"/>
-      <property name="files" value="DeplifyBotApplication\.java"/>
+      <property name="files" value="Application\.java"/>
   </module>
 
   <module name="SuppressionSingleFilter">
       <property name="checks" value="FinalParameters"/>
-      <property name="files" value="DeplifyBotApplication\.java"/>
+      <property name="files" value="Application\.java"/>
   </module>
 
 </module>

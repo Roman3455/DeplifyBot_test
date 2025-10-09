@@ -37,7 +37,7 @@ public record ReplyKeyboardMarkup(
                 keyboards
         );
     }
-    
+
     @SafeVarargs
     public static ReplyKeyboardMarkup persistentResizedKeyboard(@Nonnull final List<KeyboardButton>... keyboards) {
         return ofRows(
@@ -52,12 +52,13 @@ public record ReplyKeyboardMarkup(
 
     @SafeVarargs
     public static ReplyKeyboardMarkup ofRows(
-            Boolean isPersistent,
-            Boolean resizeKeyboard,
-            Boolean oneTimeKeyboard,
-            String inputFieldPlaceholder,
-            Boolean selective,
-            @Nonnull final List<KeyboardButton>... keyboards) {
+            final Boolean isPersistent,
+            final Boolean resizeKeyboard,
+            final Boolean oneTimeKeyboard,
+            final String inputFieldPlaceholder,
+            final Boolean selective,
+            @Nonnull final List<KeyboardButton>... keyboards
+    ) {
         List<List<KeyboardButton>> rows = Arrays.stream(keyboards)
                 .map(List::copyOf)
                 .toList();
