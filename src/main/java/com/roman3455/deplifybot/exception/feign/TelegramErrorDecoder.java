@@ -1,7 +1,7 @@
 package com.roman3455.deplifybot.exception.feign;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.roman3455.deplifybot.dto.telegram.inbound.TelegramResponseMessage;
+import com.roman3455.deplifybot.dto.telegram.api.response.ResponseBody;
 import com.roman3455.deplifybot.exception.feign.telegram.TelegramBadRequestException;
 import com.roman3455.deplifybot.exception.feign.telegram.TelegramForbiddenException;
 import com.roman3455.deplifybot.exception.feign.telegram.TelegramNotAcceptableException;
@@ -46,7 +46,7 @@ public record TelegramErrorDecoder(
         }
 
         try (InputStream inputStream = response.body().asInputStream()) {
-            TelegramResponseMessage<?> exception = mapper.readValue(inputStream, TelegramResponseMessage.class);
+            ResponseBody<?> exception = mapper.readValue(inputStream, ResponseBody.class);
             LOG.warn("Feign method [{}] failed. Telegram API error [{}]: {}",
                     methodKey, response.status(), exception.description());
             return switch (response.status()) {
@@ -58,7 +58,7 @@ public record TelegramErrorDecoder(
                 case PAYLOAD_TOO_LARGE -> new TelegramPayloadTooLargeException(exception.description());
                 case ENHANCE_YOUR_CALM, TOO_MANY_REQUESTS -> {
                     long retryAfter = Optional.ofNullable(exception.parameters())
-                            .map(TelegramResponseMessage.ResponseParameters::retryAfter)
+                            .map(ResponseBody.ResponseParameters::retryAfter)
                             .orElse(0);
                     yield new TelegramTooManyRequestsException(exception.description(), retryAfter);
                 }

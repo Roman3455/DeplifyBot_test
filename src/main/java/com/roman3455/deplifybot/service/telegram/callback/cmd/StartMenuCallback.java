@@ -4,7 +4,7 @@ import com.roman3455.deplifybot.client.TelegramClient;
 import com.roman3455.deplifybot.dto.telegram.api.request.AnswerCallbackQuery;
 import com.roman3455.deplifybot.dto.telegram.api.request.EditMessageText;
 import com.roman3455.deplifybot.dto.telegram.api.ui.ReplyMarkup;
-import com.roman3455.deplifybot.dto.telegram.inbound.Update;
+import com.roman3455.deplifybot.dto.telegram.api.response.Update;
 import com.roman3455.deplifybot.dto.telegram.api.ui.InlineKeyboardButton;
 import com.roman3455.deplifybot.dto.telegram.api.ui.InlineKeyboardMarkup;
 import com.roman3455.deplifybot.service.telegram.callback.Callback;
@@ -28,7 +28,7 @@ public final class StartMenuCallback implements Callback {
     @Override
     public void apply(final Update update) {
         var callbackQueryId = update.callbackQuery().Id();
-        var answerCallbackQuery = AnswerCallbackQuery.defaultAnswer(callbackQueryId);
+        var answerCallbackQuery = AnswerCallbackQuery.empty(callbackQueryId);
         client.answerCallbackQuery(answerCallbackQuery);
         ReplyMarkup callbackButton = new InlineKeyboardMarkup(
                 List.of(

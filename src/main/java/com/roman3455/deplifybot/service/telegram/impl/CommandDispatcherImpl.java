@@ -1,6 +1,6 @@
 package com.roman3455.deplifybot.service.telegram.impl;
 
-import com.roman3455.deplifybot.dto.telegram.inbound.Update;
+import com.roman3455.deplifybot.dto.telegram.api.response.Update;
 import com.roman3455.deplifybot.service.telegram.CommandDispatcher;
 import com.roman3455.deplifybot.service.telegram.command.Command;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.roman3455.deplifybot.dto.telegram.inbound;
+package com.roman3455.deplifybot.dto.telegram.api.response;
 
 public record ChatAdministratorRights(
         boolean isAnonymous,

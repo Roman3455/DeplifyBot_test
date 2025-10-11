@@ -14,7 +14,7 @@ public record KeyboardButton(
         Objects.requireNonNull(text, "Field 'text' cannot be null.");
     }
 
-    public static KeyboardButton text(@Nonnull final String text) {
+    public static KeyboardButton ofText(@Nonnull final String text) {
         return new KeyboardButton(text, null);
     }
 }

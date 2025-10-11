@@ -37,7 +37,7 @@ public class BotInitializer {
     @PostConstruct
     public void initBot() {
         generateTelegramApiToken();
-        setWebhook(telegramWebhookUrl + telegramWebhookPath);
+        setWebhook();
     }
 
     private void generateTelegramApiToken() {
@@ -46,8 +46,9 @@ public class BotInitializer {
         telegramApiToken = Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes);
     }
 
-    private void setWebhook(final String webhookUrl) {
-        var webhook = new SetWebhook(webhookUrl, null, null, null, telegramApiToken);
+    private void setWebhook() {
+        String webhookUrl = telegramWebhookUrl + telegramWebhookPath;
+        SetWebhook webhook = SetWebhook.ofSecuredUrl(webhookUrl, telegramApiToken);
         telegramClient.setWebhook(webhook);
     }
 

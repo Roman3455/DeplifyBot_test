@@ -1,6 +1,6 @@
 package com.roman3455.deplifybot.dto.telegram.api.ui;
 
-import com.roman3455.deplifybot.dto.telegram.inbound.ChatAdministratorRights;
+import com.roman3455.deplifybot.dto.telegram.api.response.ChatAdministratorRights;
 import jakarta.annotation.Nonnull;
 import jakarta.validation.Valid;
 
