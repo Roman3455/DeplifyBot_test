@@ -27,7 +27,7 @@ public record ReplyKeyboardMarkup(
     }
 
     @SafeVarargs
-    public static ReplyKeyboardMarkup oneTimeResizedKeyboard(@Nonnull final List<KeyboardButton>... keyboards) {
+    public static ReplyKeyboardMarkup ofResizedOneTimeKeyboard(@Nonnull final List<KeyboardButton>... keyboards) {
         return ofRows(
                 null,
                 true,
@@ -39,7 +39,7 @@ public record ReplyKeyboardMarkup(
     }
 
     @SafeVarargs
-    public static ReplyKeyboardMarkup persistentResizedKeyboard(@Nonnull final List<KeyboardButton>... keyboards) {
+    public static ReplyKeyboardMarkup ofResizedPersistentKeyboard(@Nonnull final List<KeyboardButton>... keyboards) {
         return ofRows(
                 true,
                 true,

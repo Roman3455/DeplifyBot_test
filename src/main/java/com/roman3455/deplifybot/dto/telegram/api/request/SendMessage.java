@@ -1,5 +1,6 @@
 package com.roman3455.deplifybot.dto.telegram.api.request;
 
+import com.roman3455.deplifybot.dto.telegram.api.enumiration.ParseModeType;
 import com.roman3455.deplifybot.dto.telegram.api.ui.ReplyMarkup;
 import jakarta.annotation.Nonnull;
 import jakarta.validation.Valid;
@@ -10,7 +11,7 @@ public record SendMessage(
         @Nonnull Object chatId,
         Long messageThreadId,
         @Nonnull String text,
-        String parseMode,
+        ParseModeType parseMode,
         Boolean disableNotification,
         @Valid ReplyMarkup replyMarkup
 ) {
@@ -25,11 +26,48 @@ public record SendMessage(
         }
     }
 
-    public static SendMessage defaultSilentMarkupMessage(
+    public static SendMessage ofSilentMarkdownMessage(
             @Nonnull final Object chatId,
             @Nonnull final String text,
             final ReplyMarkup replyMarkup
     ) {
-        return new SendMessage(chatId, null, text, null, true, replyMarkup);
+        return new SendMessage(
+                chatId,
+                null,
+                text,
+                ParseModeType.MARKDOWN_V2,
+                true,
+                replyMarkup
+        );
+    }
+
+    public static SendMessage ofSilentHtmlMessage(
+            @Nonnull final Object chatId,
+            @Nonnull final String text,
+            final ReplyMarkup replyMarkup
+    ) {
+        return new SendMessage(
+                chatId,
+                null,
+                text,
+                ParseModeType.HTML,
+                true,
+                replyMarkup
+        );
+    }
+
+    public static SendMessage ofSilentPlainMessage(
+            @Nonnull final Object chatId,
+            @Nonnull final String text,
+            final ReplyMarkup replyMarkup
+    ) {
+        return new SendMessage(
+                chatId,
+                null,
+                text,
+                ParseModeType.PLAIN,
+                true,
+                replyMarkup
+        );
     }
 }

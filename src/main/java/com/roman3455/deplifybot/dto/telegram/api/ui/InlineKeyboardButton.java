@@ -36,15 +36,15 @@ public record InlineKeyboardButton(
         }
     }
 
-    public static InlineKeyboardButton url(@Nonnull final String text, @Nonnull final String url) {
+    public static InlineKeyboardButton ofUrl(@Nonnull final String text, @Nonnull final String url) {
         return new InlineKeyboardButton(text, url, null, null);
     }
 
-    public static InlineKeyboardButton callbackData(@Nonnull final String text, @Nonnull final String callbackData) {
+    public static InlineKeyboardButton ofCallbackData(@Nonnull final String text, @Nonnull final String callbackData) {
         return new InlineKeyboardButton(text, null, callbackData, null);
     }
 
-    public static InlineKeyboardButton copyText(@Nonnull final String text, @Nonnull final String copyText) {
+    public static InlineKeyboardButton ofCopyText(@Nonnull final String text, @Nonnull final String copyText) {
         return new InlineKeyboardButton(text, null, null, new CopyTextButton(copyText));
     }
 }

@@ -11,7 +11,7 @@ public record ReplyKeyboardRemove(
         }
     }
 
-    public static ReplyKeyboardRemove allUsers() {
+    public static ReplyKeyboardRemove forAllUsers() {
         return new ReplyKeyboardRemove(true, null);
     }
 }

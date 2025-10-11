@@ -1,8 +1,8 @@
 package com.roman3455.deplifybot.api;
 
 import com.roman3455.deplifybot.configuration.BotInitializer;
-import com.roman3455.deplifybot.dto.telegram.inbound.Update;
-import com.roman3455.deplifybot.service.telegram.UpdateDispatcher;
+import com.roman3455.deplifybot.dto.telegram.api.response.Update;
+import com.roman3455.deplifybot.service.telegram.TelegramService;
 import com.roman3455.deplifybot.util.telegram.TelegramApiTokenVerification;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +19,9 @@ import java.util.concurrent.CompletableFuture;
 public final class TelegramWebhookController {
 
     private final BotInitializer botInitializer;
-    private final UpdateDispatcher dispatcher;
+    private final TelegramService dispatcher;
 
-    public TelegramWebhookController(final BotInitializer botInitializer, final UpdateDispatcher dispatcher) {
+    public TelegramWebhookController(final BotInitializer botInitializer, final TelegramService dispatcher) {
         this.botInitializer = botInitializer;
         this.dispatcher = dispatcher;
     }

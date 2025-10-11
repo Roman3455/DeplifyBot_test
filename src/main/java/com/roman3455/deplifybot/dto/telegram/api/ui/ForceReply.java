@@ -17,11 +17,11 @@ public record ForceReply(
         }
     }
 
-    public static ForceReply defaultReply() {
+    public static ForceReply empty() {
         return new ForceReply(true, null);
     }
 
-    public static ForceReply withInputPlaceholder(final String inputFieldPlaceholder) {
+    public static ForceReply withPlaceholder(final String inputFieldPlaceholder) {
         return new ForceReply(true, inputFieldPlaceholder);
     }
 }

@@ -17,7 +17,7 @@ public record SetWebhook(
         Objects.requireNonNull(url, "Field 'url' cannot be null");
     }
 
-    public static SetWebhook defaultWebhook(@Nonnull final String url, final String secretToken) {
+    public static SetWebhook ofSecuredUrl(@Nonnull final String url, final String secretToken) {
         return new SetWebhook(url, null, null, null, secretToken);
     }
 }

@@ -3,7 +3,7 @@ package com.roman3455.deplifybot.service.telegram.command.cmd;
 import com.roman3455.deplifybot.client.TelegramClient;
 import com.roman3455.deplifybot.dto.telegram.api.ui.ReplyMarkup;
 import com.roman3455.deplifybot.dto.telegram.api.request.SendMessage;
-import com.roman3455.deplifybot.dto.telegram.inbound.Update;
+import com.roman3455.deplifybot.dto.telegram.api.response.Update;
 import com.roman3455.deplifybot.dto.telegram.api.ui.InlineKeyboardButton;
 import com.roman3455.deplifybot.dto.telegram.api.ui.InlineKeyboardMarkup;
 import com.roman3455.deplifybot.service.telegram.callback.CallbackType;
@@ -54,7 +54,7 @@ public final class StartMenuCommand implements Command {
                         )
                 )
         );
-        return SendMessage.defaultSilentMarkupMessage(chatId, sourceText, callbackButton);
+        return SendMessage.ofSilentMarkdownMessage(chatId, sourceText, callbackButton);
     }
 
     @Override

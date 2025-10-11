@@ -1,0 +1,24 @@
+<configuration>
+    <springProperty scope="context" name="LOG_PATH" source="logging.file.path" defaultValue="logs" />
+    <springProperty scope="context" name="APP_ENV" source="spring.profiles.active" defaultValue="local" />
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name" defaultValue="telegram-bot" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg [chatId=%X{chatId}, userId=%X{userId}]%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="JSON" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"app":"${APP_NAME}","env":"${APP_ENV}"}</customFields>
+            <includeMdcKeyName>chatId</includeMdcKeyName>
+            <includeMdcKeyName>userId</includeMdcKeyName>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+<!--        <appender-ref ref="JSON"/>-->
+    </root>
+</configuration>
