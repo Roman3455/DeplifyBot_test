@@ -11,7 +11,7 @@ spring:
       client:
         config:
           telegram:
-            url: ${TELEGRAM_API_URL}/bot${TELEGRAM_BOT_TOKEN}
+            url: ${TELEGRAM_API_URL:https://example.com}/bot${TELEGRAM_BOT_TOKEN:dummy-token}
             connect-timeout: 10000
             read-timeout: 15000
   messages:
@@ -28,8 +28,8 @@ springdoc:
 telegram:
   bot:
     webhook:
-      url: ${TELEGRAM_WEBHOOK_URL}
+      url: ${TELEGRAM_WEBHOOK_URL:https://example.com}
       path: /telegram/webhook
 
 server:
-  port: ${PORT}
+  port: ${PORT:8080}
