@@ -20,31 +20,4 @@ public record EditMessageText(
         Objects.requireNonNull(messageId, "Field 'messageId' cannot be null");
         Objects.requireNonNull(text, "Field 'text' cannot be null");
     }
-
-    public static EditMessageText ofMarkdown(
-            @Nonnull final Long chatId,
-            @Nonnull final Long messageId,
-            @Nonnull final String text,
-            final ReplyMarkup replyMarkup
-    ) {
-        return new EditMessageText(chatId, messageId, text, ParseModeType.MARKDOWN_V2, replyMarkup);
-    }
-
-    public static EditMessageText ofHtml(
-            @Nonnull final Long chatId,
-            @Nonnull final Long messageId,
-            @Nonnull final String text,
-            final ReplyMarkup replyMarkup
-    ) {
-        return new EditMessageText(chatId, messageId, text, ParseModeType.HTML, replyMarkup);
-    }
-
-    public static EditMessageText ofPlain(
-            @Nonnull final Long chatId,
-            @Nonnull final Long messageId,
-            @Nonnull final String text,
-            final ReplyMarkup replyMarkup
-    ) {
-        return new EditMessageText(chatId, messageId, text, ParseModeType.PLAIN, replyMarkup);
-    }
 }

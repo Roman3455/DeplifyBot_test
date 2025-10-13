@@ -28,7 +28,7 @@ public final class CommandDispatcherImpl implements CommandDispatcher {
         String commandName = update.message().text().strip().toLowerCase(Locale.ROOT);
         Command command = commandsMap.get(commandName);
         if (command != null) {
-            LOG.info("Found command {}", commandName);
+            LOG.info("Processing command {}", commandName);
             command.apply(update);
         }
     }
