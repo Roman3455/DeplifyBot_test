@@ -23,7 +23,6 @@ repositories {
 
 dependencies {
     implementation(libs.spring.boot.starter.web)
-    implementation(libs.spring.boot.starter.aop)
     implementation(libs.spring.boot.starter.validation)
     implementation(libs.spring.cloud.starter.openfeign)
 	implementation(libs.spring.cloud.starter.resilience4j)
