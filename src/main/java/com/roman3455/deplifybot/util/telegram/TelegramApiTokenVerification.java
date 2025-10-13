@@ -17,16 +17,13 @@ public final class TelegramApiTokenVerification {
     private TelegramApiTokenVerification() {
     }
 
-    public static void assertValid(
-            final Update update,
-            final String botApiToken,
-            final String receivedApiToken
-    ) throws ResponseStatusException {
-
+    public static void assertValid(final Update update, final String botApiToken, final String receivedApiToken)
+            throws ResponseStatusException {
         if (receivedApiToken == null) {
             LOG.warn("Update [{}]: received null Telegram API token", update.updateId());
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Missing " + HEADER);
         }
+
         byte[] expectedToken = botApiToken.getBytes(StandardCharsets.UTF_8);
         byte[] actualToken = receivedApiToken.getBytes(StandardCharsets.UTF_8);
         if (!MessageDigest.isEqual(expectedToken, actualToken)) {

@@ -27,7 +27,7 @@ public final class CallbackDispatcherImpl implements CallbackDispatcher {
         var callbackData = update.callbackQuery().data();
         Callback callback = callbacksMap.get(callbackData);
         if (callback != null) {
-            LOG.info("Found callback {}", callbackData);
+            LOG.info("Processing callback {}", callbackData);
             callback.apply(update);
         }
     }

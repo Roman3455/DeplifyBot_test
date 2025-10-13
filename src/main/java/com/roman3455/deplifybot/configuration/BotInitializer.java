@@ -60,8 +60,8 @@ public class BotInitializer {
     }
 
     private void setWebhook() {
-        String webhookUrl = this.webhookUrl + webhookPath;
-        SetWebhook webhook = SetWebhook.ofSecuredUrl(webhookUrl, botApiToken);
+        String url = webhookUrl + webhookPath;
+        SetWebhook webhook = SetWebhook.ofSecuredUrl(url, botApiToken);
         telegramClient.setWebhook(webhook);
     }
 
