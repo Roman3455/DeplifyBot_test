@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      TELEGRAM_API_URL: https://example.com
+      TELEGRAM_BOT_TOKEN: 365676767gngn
+      TELEGRAM_WEBHOOK_URL: https://example.com
       PORT: 8080
 
     steps:
