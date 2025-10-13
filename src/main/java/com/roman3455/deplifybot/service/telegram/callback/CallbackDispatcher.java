@@ -1,8 +1,8 @@
-package com.roman3455.deplifybot.service.telegram;
+package com.roman3455.deplifybot.service.telegram.callback;
 
 import com.roman3455.deplifybot.dto.telegram.api.response.Update;
 
-public interface CommandDispatcher {
+public interface CallbackDispatcher {
 
     void dispatch(Update update);
 }

@@ -4,7 +4,7 @@ import com.roman3455.deplifybot.service.telegram.BotActionType;
 
 public enum CommandType implements BotActionType {
     START("/start", "Начало работы"),
-    START_MENU("/start_menu", "Стартовое меню");
+    MAIN("/main", "Главное меню");
 
     private final String name;
     private final String description;

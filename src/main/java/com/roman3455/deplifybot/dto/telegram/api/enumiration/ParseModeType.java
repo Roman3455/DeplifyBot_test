@@ -5,7 +5,7 @@ import com.roman3455.deplifybot.util.enumiration.JsonEnum;
 public enum ParseModeType implements JsonEnum {
     MARKDOWN_V2("MarkdownV2"),
     HTML("HTML"),
-    PLAIN(null);
+    PLAIN("");
 
     private final String value;
 

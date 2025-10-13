@@ -25,49 +25,4 @@ public record SendMessage(
             throw new IllegalArgumentException("Allowed 'text' length is 1 to 4096 characters.");
         }
     }
-
-    public static SendMessage ofSilentMarkdownMessage(
-            @Nonnull final Object chatId,
-            @Nonnull final String text,
-            final ReplyMarkup replyMarkup
-    ) {
-        return new SendMessage(
-                chatId,
-                null,
-                text,
-                ParseModeType.MARKDOWN_V2,
-                true,
-                replyMarkup
-        );
-    }
-
-    public static SendMessage ofSilentHtmlMessage(
-            @Nonnull final Object chatId,
-            @Nonnull final String text,
-            final ReplyMarkup replyMarkup
-    ) {
-        return new SendMessage(
-                chatId,
-                null,
-                text,
-                ParseModeType.HTML,
-                true,
-                replyMarkup
-        );
-    }
-
-    public static SendMessage ofSilentPlainMessage(
-            @Nonnull final Object chatId,
-            @Nonnull final String text,
-            final ReplyMarkup replyMarkup
-    ) {
-        return new SendMessage(
-                chatId,
-                null,
-                text,
-                ParseModeType.PLAIN,
-                true,
-                replyMarkup
-        );
-    }
 }
