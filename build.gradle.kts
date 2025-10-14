@@ -22,16 +22,27 @@ repositories {
 }
 
 dependencies {
+// === Spring Boot ===
     implementation(libs.spring.boot.starter.web)
+    implementation(libs.spring.boot.starter.data.jpa)
     implementation(libs.spring.boot.starter.validation)
+// === Spring Cloud ===
     implementation(libs.spring.cloud.starter.openfeign)
 	implementation(libs.spring.cloud.starter.resilience4j)
     implementation(platform(libs.spring.cloud.bom))
+// === OpenAPI / Swagger ===
     implementation(libs.springdoc.openapi.starter.webmvc)
+// === Utility ===
     implementation(libs.spring.dotenv)
     implementation(libs.squareup.okhttp)
-
+// === Database ===
+    implementation(libs.flyway.db.core)
+    implementation(libs.flyway.db.postgresql)
+    runtimeOnly(libs.postgresql)
+// === Testing ===
 	testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.testcontainers.junit.jupiter)
+    testImplementation(libs.testcontainers.postgresql)
 	testRuntimeOnly(libs.junit.jupiter)
 }
 
