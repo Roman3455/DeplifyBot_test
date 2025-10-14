@@ -1,10 +1,12 @@
-package com.roman3455.deplifybot.service.telegram.callback;
+package com.roman3455.deplifybot.service.telegram.callback.impl;
 
 import com.roman3455.deplifybot.dto.telegram.api.response.Update;
 import com.roman3455.deplifybot.dto.telegram.api.ui.ReplyMarkup;
 import com.roman3455.deplifybot.dto.telegram.factory.InlineKeyboardFactory;
 import com.roman3455.deplifybot.dto.telegram.factory.InlineKeyboardType;
 import com.roman3455.deplifybot.service.telegram.TelegramClientService;
+import com.roman3455.deplifybot.service.telegram.callback.Callback;
+import com.roman3455.deplifybot.service.telegram.callback.CallbackType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
